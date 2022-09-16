@@ -21,5 +21,20 @@ function getUserChoice(){
     return i; //return the user choice
 }
 
+function playround(){
+    let playerSelection = getUserChoice();
+    let computerSelection = getComputerChoice();
+
+    if ((playerSelection === computerSelection)){
+        return "No winner. there is a tie!"
+    }
+    else if (((playerSelection === "paper")&&(computerSelection === "rock"))||
+             ((playerSelection === "rock")&&(computerSelection === "scissors"))||
+             ((playerSelection === "scissors")&&(computerSelection=== "paper"))
+            ){
+                return `You Win! ${playerSelection} beats ${computerSelection}`;
+            }
+    else {return `You Lose! ${computerSelection} beats ${playerSelection}`;}
+}
 
 
