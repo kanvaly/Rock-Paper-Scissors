@@ -10,6 +10,8 @@ function getUserChoice(){
     let i;
     while (again){
         i = prompt("Choose between: paper, rock, and scissors. Either one of these values must be entered.", "paper");
+        if (i === null){return i;} //let user cancel the prompt
+
         i = i.toLowerCase();
         if ((i !== "rock") && (i !== "paper") && (i !== "scissors")) {
             continue 
@@ -23,10 +25,12 @@ function getUserChoice(){
 
 function playround(){
     let playerSelection = getUserChoice();
+    if (!playerSelection){return} //cancel the round and will then cause user to exit the game
+
     let computerSelection = getComputerChoice();
 
     if ((playerSelection === computerSelection)){
-        return "No winner. there is a tie!"
+        return "No winner. It is a tie!"
     }
     else if (((playerSelection === "paper")&&(computerSelection === "rock"))||
              ((playerSelection === "rock")&&(computerSelection === "scissors"))||
