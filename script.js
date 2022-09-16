@@ -54,9 +54,9 @@ function game(){
 
         if (!winner) {return "You exit the game"} //Exit the game when user cancels the round
 
-        else if (winner[4] === "W") {user++} //Check if user is the winner then record its win
+        else if (winner[4] === "W") {user++} //Check if user is the winner. Then record its win
 
-        else {computer++} //Else computer is winner. Then record its win.
+        else if (winner[4] === "L") {computer++} //Check if computer is winner. Then record its win.
     }
 
     if (user === computer) {return 'The Game is a tie'}
