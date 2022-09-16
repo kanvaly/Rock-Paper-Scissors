@@ -35,10 +35,34 @@ function playround(){
     else if (((playerSelection === "paper")&&(computerSelection === "rock"))||
              ((playerSelection === "rock")&&(computerSelection === "scissors"))||
              ((playerSelection === "scissors")&&(computerSelection=== "paper"))
-            ){
-                return `You Win! ${playerSelection} beats ${computerSelection}`;
+            ){ 
+                return (`You Win! ${playerSelection} beats ${computerSelection}`);
             }
+
     else {return `You Lose! ${computerSelection} beats ${playerSelection}`;}
 }
 
 
+function game(){
+
+    let user = 0; let computer = 0;
+
+    for (let i=0; i<5; i++ ){
+
+        let winner = playround();
+        console.log(winner);
+
+        if (!winner) {return "You exit the game"} //Exit the game when user cancels the round
+
+        else if (winner[4] === "W") {user++} //Check if user is the winner then record its win
+
+        else {computer++} //Else computer is winner. Then record its win.
+    }
+
+    if (user === computer) {return 'The Game is a tie'}
+
+    else if (user > computer) {return "You are the winner of the game !"}
+
+    else {return "Computer is the winner of the game !"}
+
+}
